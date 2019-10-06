@@ -1,4 +1,12 @@
 import torch 
+import numpy as np
+
+#=========================================================#
+# Basically following the 1 hour blitz tutorial on the 
+# pytorch website. 
+# link : 
+# https://pytorch.org/tutorials/beginner/blitz/tensor_tutorial.html#sphx-glr-beginner-blitz-tensor-tutorial-py
+#=========================================================#
 
 #=========================================================#
 # Basically is tensor is kind of a matrix or you can say 
@@ -83,6 +91,15 @@ print(y)
 # Numpy like bells and whistles. 
 #=========================================================#
 print(y[1:3])
+#=========================================================#
+
+#=========================================================#
+# Converting numpy array to torch tensor.
+#=========================================================#
+a = np.ones(5)
+b = torch.from_numpy(a)
+print(a)
+print(b)
 #=========================================================#
 
 
