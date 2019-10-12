@@ -48,12 +48,14 @@ class Net(nn.Module):
 # Defining an instance of class. 
 #=========================================================#
 net = Net()
+print("Printing Neural Network:")
 print(net)
 #=========================================================#
 
 #=========================================================#
 # Checking parameters of the model.
 #=========================================================#
+print("Printing parameters' length")
 params = list(net.parameters())
 print(len(params))
 #=========================================================#
@@ -62,6 +64,7 @@ print(len(params))
 #=========================================================#
 # Testing just on a sample input.
 #=========================================================#
+print("Printing output on smaple input")
 input = torch.randn(1, 1, 32, 32)
 out = net(input)
 print(out)
@@ -110,7 +113,6 @@ for f in net.parameters():
 # Using optimizers.
 #=========================================================#
 optimizer = optim.SGD(net.parameters(), lr=0.01)
-
 optimizer.zero_grad()
 output = net(input)
 loss = criterion(output, target)

@@ -32,7 +32,7 @@ print(z, out)
 # Note : grad can be calculated on scalar outputs only.
 #=========================================================#
 out.backward()
-print(y.grad)
+print(x.grad)
 #=========================================================#
 
 
