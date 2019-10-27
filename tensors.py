@@ -15,6 +15,7 @@ import numpy as np
 
 #=========================================================#
 # Making an uninitialised tensor.
+# shape or dimensions are 5, 3.
 #=========================================================#
 x = torch.empty(5, 3)
 print(x)
@@ -37,21 +38,22 @@ print(x)
 #=========================================================#
 
 #=========================================================#
-# Directly use tensor method to set the values
+# Directly use tensor method to set the values.
+# Initialising the values on creating vector. 
 #=========================================================#
 x = torch.tensor([[5.5, 3], [5, 3]])
 print(x)
 #=========================================================#
 
 #=========================================================#
-# Change the existing tnsor
+# Change the existing tensor.
 #=========================================================#
 x = x.new_ones(5, 3, dtype=torch.double)
 print(x)
 #=========================================================#
 
 #=========================================================#
-# Change the data type of the existing data type
+# Change the data type of the existing data type.
 #=========================================================#
 x = torch.rand_like(x, dtype=torch.float)
 print(x)
@@ -77,7 +79,8 @@ print(x + y)
 #=========================================================#
 result = torch.empty(5, 3)
 torch.add(x, y, out=result)
-print(result)
+result2 = torch.add(x, y)
+print("Result = ", result2)
 #=========================================================#
 
 #=========================================================#

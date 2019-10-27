@@ -13,18 +13,18 @@ import numpy as np
 # We define x on which we would like to do some 
 # computations. 
 #=========================================================#
-x = torch.ones(5, 3, requires_grad=True)
+x = torch.ones(13, 1, requires_grad=True)
+weights = torch.ones(1, 13, requires_grad = True)
 print(x.requires_grad)
 #=========================================================#
 
 #=========================================================#
 # Let's do some operations on x
+# torch.mm is calculates dot product of two vectors. 
 #=========================================================#
-y = x + 2
-y.requires_grad_(True)
-z = y * y * y
-out = z.mean()
-print(z, out)
+y = torch.mm(weights, x)
+out = y
+print(out)
 #=========================================================#
 
 #=========================================================#
@@ -33,6 +33,7 @@ print(z, out)
 #=========================================================#
 out.backward()
 print(x.grad)
+print(weights.grad)
 #=========================================================#
 
 

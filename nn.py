@@ -21,15 +21,10 @@ class Net(nn.Module):
 		self.fc3 = nn.Linear(84, 10)
 
 	def forward(self, x):
-		print(x.size())
 		x = F.relu(self.conv1(x))
-		print(x.size())
 		x = F.max_pool2d(x, 2)
-		print(x.size())
 		x = F.relu(self.conv2(x))
-		print(x.size())
 		x = F.max_pool2d(x, 2)
-		print(x.size())
 		x = x.view(-1, self.num_flat_features(x))
 		x = F.relu(self.fc1(x))
 		x = F.relu(self.fc2(x))
@@ -57,7 +52,7 @@ print(net)
 #=========================================================#
 print("Printing parameters' length")
 params = list(net.parameters())
-print(len(params))
+print(params[0])
 #=========================================================#
 
 
