@@ -48,11 +48,11 @@ classes = ('plane', 'car', 'bird', 'cat',
 #=========================================================#
 
 
-def imshow(img):
-	img = img / 2 + 0.5  #unnormalise
-	npimg = img.numpy()
-	plt.imshow(np.transpose(npimg, (1, 2, 0))) 
-	plt.show()
+# def imshow(img):
+# 	img = img / 2 + 0.5  #unnormalise
+# 	npimg = img.numpy()
+# 	plt.imshow(np.transpose(npimg, (1, 2, 0))) 
+# 	plt.show()
 
 
 # get some random training images
@@ -60,7 +60,7 @@ dataiter = iter(trainloader)
 images, labels = dataiter.next()
 
 # show images
-imshow(torchvision.utils.make_grid(images))
+# imshow(torchvision.utils.make_grid(images))
 # print labels
 print(' '.join('%5s' % classes[labels[j]] for j in range(4)))
 #=========================================================#
@@ -95,7 +95,28 @@ net = Net()
 # Defining the Neural Network Loss Function. 
 #=========================================================#
 criterion = nn.CrossEntropyLoss()
-optimizer = optim.SGD(net.parameters(), lr=0.01, momentum = 0.9)
+optimizer = optim.SGD(net.parameters(), lr=0.001, momentum = 0.9)
 #=========================================================#
+
+#=========================================================#
+# Training the model. 
+#=========================================================#
+for epoch in range(2):
+  running_loss = 0.0
+  for i, data in enumerate(trainloader, 0):
+    inputs, label = data
+    optimizer.zero_grad()
+    outputs = net(inputs)
+    loss = criterion(outputs, label)
+    loss.backward()
+    optimizer.step()
+    running_loss += loss.item()
+    if i % 2000 == 1999:    # print every 2000 mini-batches
+        print('[%d, %5d] loss: %.3f' %
+        (epoch + 1, i + 1, running_loss / 2000))
+        running_loss = 0.0
+#=========================================================#
+
+
 
 
