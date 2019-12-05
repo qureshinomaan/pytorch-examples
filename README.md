@@ -1,8 +1,2 @@
-# pytorch-examples
-A repository for examples of Pytorch.
-#=========================================================#
-# Basically following the 1 hour blitz tutorial on the 
-# pytorch website. 
-# link : 
-# https://pytorch.org/tutorials/beginner/blitz/tensor_tutorial.html#sphx-glr-beginner-blitz-tensor-tutorial-py
-#=========================================================#
+# Templates
+Whenever I learn something new, like a framework or a language, I will put the code and tutorial links here.
